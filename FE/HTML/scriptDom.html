@@ -1,0 +1,56 @@
+<!--2025.07.29 -2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>현재시간</label>
+    <span id="time"></span>
+
+    <hr/>
+
+    <a href="google.com">google</a><br/>
+    <a href="naver.com">naver</a><br/>
+    <a href="lgcns.com">lgcns</a><br/>
+
+    <hr/>
+    <p class = "result"> </p>
+
+    <script>
+  
+        // let spanNode = document.querySelector("#time");
+        let spanNode = document.getElementById("time");
+        console.log("[debug] >>>", spanNode);
+
+        // new 연산자를 이용한 객체 생성
+        current = new Date();
+        console.log("[debug] >>> current", current);
+
+    // tag의 body로 텍스트를 삽입하고자 할때는 textContent 속성을 사용
+    spanNode.textContent = current.toLocaleString();
+      
+    // 식별값이 없을때 태그 명으로 접근할 수 있는데 : getElementsByTagname();
+
+    const lst = document.getElementsByTagName('a');
+    console.log("[debug] >>> lst :", lst);
+    for(idx=0; idx < lst.length; idx++){
+        console.log("[debug] >>> text :", lst[idx].text)
+        console.log("[debug] >>> property :", lst[idx].href)
+
+    }
+
+    //클래스 이름으로 태그
+    pNode = document.getElementsByClassName('result');
+    console.log("[debug] >>> result", pNode);
+    pNode[0].textContent = "클래스 이름으로 태그에 접근";
+    pNode[0].style.color='red'
+        
+
+
+    </script>
+</body>
+</html>
+

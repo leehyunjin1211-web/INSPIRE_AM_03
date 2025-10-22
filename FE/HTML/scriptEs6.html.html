@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+
+<button type="button" onclick="listHandler()">목록보기</button>
+<div>
+<ol id="list"></ol>
+</div>
+
+<script>
+// Enhanced Object Literal(향상된 객체 리터럴)
+// 축약문법 - 속성과 값이 같으면 1개만 기입
+// 축약문법 - 속성에 함수를 정의할 때 function 예약어 생략 가능
+let language = 'javascript' ;
+let userInfo = {
+// language : language ,
+language ,
+coding() {
+console.log(`Hello World`);
+}
+}
+console.log("[debug] >>> " , userInfo.language);
+userInfo.coding() ;
+
+// Spread Operator(스프레드 오퍼레이터)
+// 특정 객체 또는 배열의 값을 다른객체, 다른 배열로 복제하거나 옮길 때 사용
+// 연산자 ...
+let obj = {
+name : 'jslim',
+camp : 'am inspire camp 3th'
+};
+let newObj = {...obj} ;
+console.log("[debug] >>> " , (newObj === obj) ? 'true' : 'false' );
+
+let ary = [1,2,3] ;
+let newAry = [...ary] ;
+console.log("[debug] >>> " , (newAry === ary) ? 'true' : 'false' );
+
+// Destructuring(구조분해)
+
+let { name, camp } = obj ;
+console.log("[debug] >>> obj name " , name);
+console.log("[debug] >>> obj camp " , camp);
+
+// Promise(resolve, reject)
+// 비동기 작업의 처리를 나타내는 객체
+// 통신을 위한 함수 또는 라이브러리 : fetch() , axios , jQuery( ajax() )
+/*
+const promise = new Promise((resolve, reject) => {
+setTimeout( () => {
+// resolve( {name : 'jslim', camp : 'am inspire camp 3th'} ) ;
+reject('에러 발생');
+} , 1000);
+})
+console.log("[debug] >>> Promise(resolve, reject) " , promise);
+promise.then( response => {
+console.log("[debug] >>> response " , response);
+
+});
+promise.catch( error => {
+console.log("[debug] >>> response " , error);
+
+});
+*/
+///////////////////////////////////////////////
+function getData() {
+return new Promise((resolve, reject) => {
+setTimeout( () => {
+const status = 200 ;
+if(status == 200) {
+resolve( {name : 'jslim', camp : 'am inspire camp 3th'} ) ;
+} else {
+reject('에러 발생');
+}
+} , 1000);
+});
+}
+
+const listHandler = async () => {
+/*
+try {
+const response = await getData();
+console.log("[debug] >>> response ok " , response);
+} catch(error) {
+console.log("[debug] >>> response error " , error);
+}
+*/
+try {
+const response = await fetch('./data/todos.json');
+const data = await response.json();
+console.log("[debug] >>> response data " , data);
+
+// 구현 부탁드립니다..........
+// <li> 만들고 <ol id="list"></ol> 데이터를 동적 바인딩한다면?
+let txt = '';
+data.forEach( d => {
+txt += `<li>${d.name}-${d.camp}</li>` ;
+}) ;
+document.querySelector("#list").innerHTML = txt ;
+
+} catch (error) {
+console.log("[debug] >>> response error " , error);
+}
+
+
+}
+
+</script>
+</body>
+</html>
+
+
+

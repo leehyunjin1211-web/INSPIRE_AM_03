@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+    <typeAliases>
+        <!-- blog  -->
+        <typeAlias  alias="blogResponseDTO" 
+                    type="com.lgcns.inspire_restspring.rest.blog.domain.BlogResponseDTO" /> 
+        
+        <typeAlias  alias="blogRequestDTO" 
+                    type="com.lgcns.inspire_restspring.rest.blog.domain.BlogRequestDTO" /> 
+        
+        <!-- comments -->
+        <typeAlias  alias="commentRequestDTO" 
+                    type="com.lgcns.inspire_restspring.rest.comment.domain.CommentRequestDTO" /> 
+        <typeAlias  alias="commentResponseDTO" 
+                    type="com.lgcns.inspire_restspring.rest.comment.domain.CommentResponseDTO" /> 
+    </typeAliases>
+</configuration>

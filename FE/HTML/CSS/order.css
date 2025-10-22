@@ -1,0 +1,38 @@
+/*  
+px : 화면의 실제 픽셀 수를 기준으로 (16px)
+em : 상대적 (부모의 요소의 글꼴 크기를 기준으로 계산) : 1.6px * 1.5 = 24px
+*/
+.accent{
+    color: red;
+}
+
+.txt-samll{
+    font-size: 0.7em;
+}
+
+h2{
+    color: red;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+p{
+
+    font-size: 1.2em;
+    line-height: 2em;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+h2[text="customer"]{
+    color: blue;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+h1[text="customer"]{
+    background-color: black;
+    color: white;
+    text-align: center;
+}

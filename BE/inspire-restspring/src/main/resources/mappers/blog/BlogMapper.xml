@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lgcns.inspire_restspring.rest.blog.repository.BlogMapper">
+    
+    <select id="selectRow"
+            resultType="blogResponseDTO">
+        SELECT  ID, TITLE, CONTENT
+        FROM    BLOG_TBL
+    </select>
+
+    <insert id="insertRow"
+            parameterType="blogRequestDTO"
+            useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO BLOG_TBL(TITLE, CONTENT)
+        VALUES( #{ title }, #{ content } ) 
+    </insert>
+
+    <update id="updateRow"
+            parameterType="blogRequestDTO">
+        UPDATE  BLOG_TBL
+        SET     TITLE = #{ title } , CONTENT = #{ content}
+        WHERE   ID = #{id} 
+    </update>
+
+    <select id="findById"
+            parameterType="java.lang.Integer"
+            resultType="blogResponseDTO">
+        SELECT  ID, TITLE, CONTENT 
+        FROM    BLOG_TBL 
+        WHERE   ID = #{ id }  
+    </select>
+
+    <delete id="deleteRow"
+            parameterType="blogRequestDTO">
+        DELETE FROM BLOG_TBL 
+        WHERE  ID = #{id}   
+    </delete>
+
+    <select id="findByKeyword"
+            parameterType="java.lang.String"
+            resultType="blogResponseDTO">
+        <![CDATA[ 
+            SELECT  ID, TITLE, CONTENT
+            FROM    BLOG_TBL 
+            WHERE   TITLE   LIKE CONCAT("%", #{keyword} , "%")
+            OR      CONTENT LIKE CONCAT("%", #{keyword} , "%")
+        ]]>
+    </select>
+</mapper>

@@ -1,0 +1,115 @@
+<!-- 2025.07.28 -1 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="name" id="name">
+    <button type = "button"onclick='arrowFunc()'>send</button>
+
+    <script>
+        // single line
+        /* 
+        mult line comment
+        변수: 변수는 변하는 값을 의미하고 특정 데이터를 담는 그릇과 같다.
+        기본타입            : 숫자, 문자(열), 논리, null, undifined
+        참조타입(객체타입)     : object, Array, Function
+
+    (var | let | const)msg = "좋은 아침입니다"
+        */
+
+        // Script 기본 타입
+        let msg = "좋은 아침입니다";
+        console.log("[debug] >>>", msg);
+        console.log("[debug] >>>", typeof msg);
+
+        msg  = true;
+        console.log("[debug] >>>", msg);
+        console.log("[debug] >>>", typeof msg);
+
+        let nullChk  = null;
+        console.log("[debug] >>> ==", typeof nullChk == null);
+        console.log("[debug] >>> ===", typeof nullChk === null);
+
+        console.log("[debug] >>> 1 === 1", 1 === 1);
+        console.log("[debug] >>> 1 === '1'", 1 === '1');
+
+        // console.log("[debug] >>> undifined", name);
+
+        // NaN (Not a number
+        //수차 연산을 통해 정상적인 값을 얻지 못 했을 때
+        console.log("[debug] >>> undifined", 1 - 'jslim');
+
+
+        // Script 참조 타입
+        let obj ={ 
+            name : 'jslim',
+            age : 20,
+            majer : 'cs'
+        };
+
+        console.log("[debug] >>> objeat type", typeof obj);
+
+        console.log("[debug] >>> objeat", obj);
+        console.log("[debug] >>> objeat", obj.name);
+        console.log("[debug] >>> objeat", obj.age);
+        console.log("[debug] >>> objeat", obj['major']);
+        obj['adress'] = 'seoul';
+        console.log("[debug] >>> objeat", obj.adress);
+
+         let instance ={ 
+            name : 'jslim',
+            age : 20,
+            majer : 'cs'
+        };
+
+        instance['adress'] = 'seoul';
+         console.log("[debug] >>> obj == instance", obj === instance);
+
+
+         //Array - 첨자 번지
+         let ary = [
+            {name : 'jalim'},
+            {name : 'siat'},
+            {name : 'AM inspire'},
+            {name : 'parksu'},
+            {name : 'dong'},
+         ];
+         console.log("[debug] >>> ary type", typeof ary);
+         console.log("[debug] >>> ary type", ary[0].name);
+         console.log("[debug] >>> ary type", ary[0]['name']);
+
+        // Template String
+        const name = ary[0['name']];
+        
+        console.log("[debug] >>> template string", `Hello, ${name}.` );
+
+
+        function btnHandler(){
+            window.alert("click-1");
+        };
+        // 변수에 함수를 넣으 수 있는데, 이때는 익명의 function
+        let btn = function(){
+            window.alert("click-2");
+        };
+        console.log("[debug] >>> function", typeof btn);
+
+        let arrowFunc = ( ) => {
+            window.alert("click-3");
+        };
+
+        // 분할 대입 배열(destructuring assignment)
+
+        const arr = [ 1, 2, 3, 4, 5];
+        let [x1, x2, ... other] = arr;
+        console.log("[debug >>> x1]", x1);
+        console.log("[debug >>> x1]", x2);
+        console.log("[debug >>> x1]", other);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios User Fetch Example</title>
+    <!-- Axios CDN 추가 -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <h1>User List</h1>
+    <ul id="user-list"></ul>
+
+    
+    <!--
+    엔드 포인트를 이용하여 통신
+    https://jsonplaceholder.typicode.com/users
+    -->
+
+
+    <script>
+        // 해당 API로 GET 요청을 보냅니다.
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            // 요청이 성공하면, 응답 데이터(response.data)를 users 변수에 저장합니다.
+            .then(function(response) {
+                const users = response.data;
+                const ul = document.getElementById('user-list');
+                //각 사용자 정보를 <li> 태그로 만들어 <ul id="user-list">에 추가합니다.
+                users.forEach(function(user) {
+                    const li = document.createElement('li');
+                    li.textContent = user.name + ' (' + user.email + ')';
+                    ul.appendChild(li);
+                });
+            })
+            //요청이 실패하면 콘솔에 에러를 출력합니다. 
+            .catch(function(error) {
+                console.error(error);
+            });
+    </script>
+
+</body>
+
+</html>

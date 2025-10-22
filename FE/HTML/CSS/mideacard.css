@@ -1,0 +1,44 @@
+.row{
+    display: flex;
+    flex-direction: : row;
+
+}
+
+@media screen and (min-width:320px)(max-width:700px) {
+    body{
+        display:flex;
+        flex-direction: colum;
+    }
+    
+}
+
+h1{
+    font-size:3em;
+    margin-bottom: 0.5em;
+}
+
+.colum{
+    border: 1px solid blue;
+    border-radius: 0.5em;
+    cusor: pointer;
+}
+
+.colum > .care:hover{
+    background-color: black;
+    color: white;
+}
+
+
+
+
+
+
+
+.social{
+    margin-bottom: 0.5em;
+}
+
+.card h2, p, div{
+
+    text-align: :center;
+}

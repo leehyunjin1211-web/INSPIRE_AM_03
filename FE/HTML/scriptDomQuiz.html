@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>에디오피아 커피</h1>
+        <img    src="./img/coffee-blue.webp" 
+                width="200" 
+                height="200">
+    </div>
+    <div>
+        <!--
+        <button type="button" onclick="handler('LGCNS 커피', 'coffee-pink.webp')">헤딩과 이미지속성 변경</button>
+        -->
+        <button type="button" id="changeBtn">헤딩과 이미지속성 변경</button>
+    </div>
+
+    <script>
+        /*
+        요구사항)
+        - step01 : 버튼의 이벤트를 감지하는 함수정의 
+        - step02 : 이벤트 발생시 h1, img 태그에 접근하여 
+        - step03 : 이미지 src 속성에 접근해서  coffee-pink.jpg 변경
+        - step04 : h1 접근해서 텍스트를 LGCNS 커피로 변경
+        - 필요에 따라서 태그에 선택자를 정의할 수 있으며, 이벤트 처리함수는 람다식으로
+        
+        특정영역에 text 삽입시 : innerText , textContent, innerHTML 
+        */
+
+        const handler = (heading, img) => { 
+            console.log("[debug] heading , " , heading);
+            console.log("[debug] img , " , img); 
+            hNode   = document.querySelector('body > div > h1');
+            imgNode = document.querySelector('body > div > img');
+            console.log("[debug] h1 , " , hNode); 
+            console.log("[debug] img , " , imgNode); 
+            hNode.innerHTML = `<b>${heading}</b>` ; 
+            imgNode.src = `./img/${img}` ;
+        };
+
+        let btn = document.querySelector("#changeBtn");
+        console.log("[debug] btn , " , btn); 
+        /* case 02
+        const eventHandler = () => {
+            alert("btn click");
+        };
+        btn.addEventListener("click" , eventHandler);
+        */
+        // case 03
+        btn.onclick = () => {
+            hNode   = document.querySelector('body > div > h1');
+            imgNode = document.querySelector('body > div > img');
+            hNode.innerHTML = `LGCNS 커피` ; 
+            imgNode.src = `./img/${'coffee-pink.webp'}` ;
+        }
+    </script>
+</body>
+</html>

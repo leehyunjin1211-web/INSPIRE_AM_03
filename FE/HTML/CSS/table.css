@@ -1,0 +1,13 @@
+/*
+선택자 { 속성 : 값; 속성 : 값 }
+선택자: 태그 선택자/ 아이디 선택자(#)/ 클래스 선택자(.)
+*/
+
+#table, th, td{
+    border : 1px solid red ;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px 20px;
+}

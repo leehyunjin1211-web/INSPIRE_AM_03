@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticEmail">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword">
+            </div>
+        </div>
+    </div>
+
+    <div id="msg"> </div>
+
+    <div class="mb-3 row">
+        <button type="button" class="btn btn-primary" id="loginBtn">login</button>
+        <button type="button" class="btn btn-primary" id="resetBtn">reset</button>
+    </div>
+
+    <!-- error message -->
+    <div id="err_empty_email_pwd" style="display: none;">
+        <div class="err_msg">
+            이메일 또는 패스워드를 입력해 주세요!
+        </div>
+    </div>
+
+    <div id="for_msg"></div>
+
+    <ul id = " map_result"></ul>
+
+
+
+    <script>
+    /*
+        조건문(Condition)
+        - 주어진 조건을 만족 할 떄만 실행하는 문법
+        - 조건에 따라서 다른 동작을 실행하고 싶을 때 조건문 사용
+    */
+        let age = 20;
+        let price = 10000;
+
+        if (age >= 19) {
+            console.log(`성인 인증되었습니다.... 지불 금액은 ${price}원 입니다.`);
+        } else {
+            console.log(`미성년자입니다.... 지불 금액은 ${price / 2}원 입니다.`);
+        }
+
+        let number = window.parseInt(window.prompt('자판기에서 음료를 선택하세요'));
+        console.log(`DEBUG >> type`, typeof number);
+        console.log(`DEBUG >> 선택하신 번호는 ${number}입니다.`);
+
+        switch (number) {
+            case 1:
+                console.log(`선택하신 음료는 '토레타' 입니다`);
+                break;
+            case 2:
+                console.log(`선택하신 음료는 '박카스' 입니다`);
+                break;
+            case 3:
+                console.log(`선택하신 음료는 '맥주' 입니다`);
+                break;
+            default:
+                console.log(`메뉴의 번호만 선택하세요`);
+        }
+        ////////////////////////////////////////////////////////
+
+        document.querySelector('#loginBtn').onclick = () => {
+            alert('btn click');
+            let email = document.querySelector('#staticEmail').value;
+            let passwd = document.querySelector('#inputPassword').value;
+
+            if (email === '' || passwd === '') {
+                let msg = document.querySelector("#msg")
+                console.log(`DEBUG >>> msg ${msg}`);
+
+                let err = document.querySelector("#err_empty_email_pwd")
+                msg.appenChild(err);
+            } else {
+                alert(`로그인 데이터 요청 ${email}, ${passwd}`);
+            }
+        };
+
+        /////////////////////////////////////////////////////////
+        let deckAry = [ 
+            {img : '커피', ptice: 150, discription : '제일 맛있는 커피'},
+            {img : '커피', price: 150, discription : '제일 맛있는 커피'},
+            {img : '커피', price: 150, discription : '제일 맛있는 커피'},
+        ];     
+        console.log(`DEBUG >>> 배열의 길이는 length : ${deckAry.length}`);
+        
+        let divFor = document.querySelector('#for_msg');
+
+
+        for(idx = 0; idx < deckAry.length; idx++){
+            card = deckAry[idx];
+            // divFor.textContent = `${card.img} - ${card.price} - ${card.discription}<br/>`;
+            pTag=document.createElement('p');
+            pTag.textContent = `${card.img} - ${card.price} ${card.discription}`;
+            brTag = document.createElement('br');
+            divFor.appendChild(pTag);
+            divFor.appendChild(brTag);
+        }
+
+        // 배열이 가지고 있는 map()
+        // 배열의 가 요소를 변형해서 새로운 배열을 반환하는 함수
+        descAry = deckAry.map(card => card.disctpition);
+        console.log(`DEBUG >>>> descAry`, descAry);
+
+        const ul = document.querySelector('#map_result');
+
+        descAry.forEach(element => {
+            const li = document.createElement('li'); 
+             li.textContent = element;
+             ul.appendChild(li);
+        });
+    </script>
+
+</body>
+</html>

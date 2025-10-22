@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <!--
+     최신 모바일 : 320px ~ 430px css 해상도
+    mobile : max 767px   -> 모바일 화면
+    tablet : min 767px ~ 1023px    -> 태블릿 화면
+    desl top : min 1024px   -> 테스크탑 브라우저
+    단위 : rem, %, vw, flex
+    -->
+    
+    <style>
+        @media screen and (min-width:768px ) and ( max-width:1023px){
+            body{
+                display: flex;
+                background: url('./img/bg-light.jpg') no-repeat;
+                justify-content: center ;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>안녕하세요! 미디어쿼리입니다.</h1>
+</body>
+</html>

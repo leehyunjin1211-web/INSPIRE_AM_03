@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 외부 스타일 시트 -->
+    <link href="./css/table.css" rel="stylesheet">
+
+</head>
+<body>
+    <h2>상품 구성</h2>
+    <table id="table">
+        <caption>선물용과 가정용 상품 구성</caption>
+        <colgroup>
+            <col style="background-color : aquamarine;">
+            <col>
+            <col sryle="width : 150px;">
+            <col sryle="width : 150px;">
+        </colgroup>
+
+        <thead>
+            <th>용도</th><th>중량</th><th>개수</th><th>가격</th>
+        </thead>
+
+            <tbody id="tbody">
+                <tr>
+                    <td rowspan ="2">선물용</td>
+                    <td>3Kg</td>
+                    <td>11~16개</td>
+                    <td>35,000원</td>
+                </tr>
+                <tr>
+                    <td>3Kg</td>
+                    <td>11~16개</td>
+                    <td>35,000원</td>
+                </tr>
+                <tr>
+                    <td rowspan ="2">가족용</td>
+                    <td>3Kg</td>
+                    <td>11~16개</td>
+                    <td>35,000원</td>
+                </tr>
+                <tr>
+                    <td>3Kg</td>
+                    <td>11~16개</td>
+                    <td>35,000원</td>
+                </tr>
+
+            </tbody>
+        
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"><center>상품요약</center></td>
+            </tr>
+
+        </tfoot>
+    </table>
+</body>
+</html>

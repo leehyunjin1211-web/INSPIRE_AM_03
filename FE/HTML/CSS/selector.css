@@ -1,0 +1,64 @@
+#signUp{
+    border: 1px solid red;
+    background-color: antiquewhite;
+    width: 450px;
+    margin: 30px auto;
+    padding: 20px;
+
+}
+
+#signUp > fieldset{
+    border: 1px solid blue;
+    margin-bottom: 30px;
+}
+
+#signUp legend{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#signUp li{
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+#signUp label{
+    float: left;
+    width: 150px;
+    font-size: 15px;
+}
+
+#signUp input[type="text"],
+input[type="password"],
+input[type^="t"],
+input[type$="1"]{
+
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#signUp select[name="level"]{
+    width: 180px;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+
+#signUp fieldset: :last-of-type{
+    border:none;
+}
+
+#signUp > fieldset > button{
+    border-radius: 20px;
+    font-size: 20px;
+    display: block;
+    margin: auto;
+
+}
+
+#signUp button:hover{
+    background-color: red;
+    color: white;
+}
+

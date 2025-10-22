@@ -1,0 +1,65 @@
+.container {
+    width: 1000px;
+    margin: auto;
+    border: 1px solid red;
+    padding: 20px;
+    position: relative;
+    height: 350px; /* 카드 높이에 맞게 조절 */
+}
+
+.card-title {
+    text-align: center;
+    border: 1px solid blue;
+    margin-bottom: 20px;
+    color: deepskyblue;
+    font-weight: bold;
+}
+
+.card-list {
+    position: relative;
+    width: 1000px;
+    height: 300px;
+    margin: auto;
+    /* 카드들을 절대 위치로 배치하기 위해 relative 유지 */
+}
+
+.card {
+    width: 200px;
+    height: 280px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50px; /* 카드 세로 위치 조정 */
+    left: 50%;
+    margin-left: -100px; 
+}
+
+img{
+    width: 200px;
+    border-radius: 50px;
+
+}
+
+.card > a {
+    text-decoration: none;
+}
+.card h3, button{
+    text-align: center;
+}
+
+button{
+    width: 180px;
+    margin: auto;
+    border: 1px solid red;
+    border-radius: 25px;
+    margin: 10px 5px 10px 10px;
+    padding: 10px 20px;
+}
+
+.button:hover{
+    
+    background-color: red;
+    color: white;
+}
